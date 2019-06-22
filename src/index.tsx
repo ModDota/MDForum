@@ -1,10 +1,20 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
+import { ThemeProvider } from "styled-components";
+import { BrowserRouter } from "react-router-dom";
 
-export default class Test extends React.Component {
-    public render() {
-        return <img src="/static/logo.png" />;
-    }
-}
+import App from "./App";
 
-ReactDOM.render(<Test />, document.getElementById("root"));
+const theme = {
+    primary: "#ff0000",
+    secondary: "#ffff00",
+};
+
+ReactDOM.render(
+    <ThemeProvider theme={theme}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </ThemeProvider>,
+    document.getElementById("root")
+);
